@@ -1,0 +1,7 @@
+pipeline:
+  docker:
+    image: gempesaw/drone-docker-debug:1.0.0
+    repo: gempesaw/docker-sbt
+    tags: [ latest ]
+    secrets: [ docker_username, docker_password ]
+    debug: true
