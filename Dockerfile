@@ -1,3 +1,3 @@
 FROM scratch
 
-ADD .
+ADD . .
