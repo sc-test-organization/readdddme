@@ -6,8 +6,8 @@ pipeline:
       
   docker:
     image: docker
-    env:
-      - DOCKER_API_VERSION: 1.23
+    environment:
+      - DOCKER_API_VERSION: "1.23"
     commands:
       - docker images
       - docker build -t buts .
