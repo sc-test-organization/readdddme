@@ -2,6 +2,7 @@ pipeline:
   something:
     image: busybox
     commands:
+      - sleep 10
       - ls -al
       
   teams:
