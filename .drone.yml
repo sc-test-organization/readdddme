@@ -4,6 +4,14 @@ pipeline:
     commands:
       - sleep 10
       - ls -al
+      
+  docker:
+    image: docker
+    commands:
+      - docker images
+      - docker build -t buts .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 #  slack:
 #    image: themaz/drone-slack
