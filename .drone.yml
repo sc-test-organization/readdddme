@@ -1,7 +1,9 @@
 pipeline:
-  docker:
-    image: plugins/docker
-    repo: gempesaw/docker-sbt
-    tags: [ latest ]
-    secrets: [ docker_username, docker_password ]
-    debug: true
+  something:
+    image: busybox
+    commands:
+      - ls -al
+    
++branches:
+  - master
+  - develop
