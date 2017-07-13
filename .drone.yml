@@ -2,6 +2,7 @@ pipeline:
    
   notify: 
     image: cloudsc/drone-teams-notification:manual
+    pull: true
     webhook: https://www.google.com
       
   something:
