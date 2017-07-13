@@ -1,24 +1,11 @@
 pipeline:  
-
-  restore-cache:
-    image: drillster/drone-volume-cache
-    restore: true
-    mount:
-      - ./node_modules
-    # Mount the cache volume, needs "Trusted"
-    volumes:
-      - /tmp/cache:/cache
+   
+  notify: 
+    image: cloudsc/drone-teams-notification:manual
+    webhook: https://www.google.com
       
   something:
     image: busybox
     commands: 
       - ls -al
 
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    rebuild: true
-    mount:
-      - ./node_modules
-    # Mount the cache volume, needs "Trusted"
-    volumes:
-      - /tmp/cache:/cache
