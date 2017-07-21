@@ -9,3 +9,6 @@ pipeline:
     repo: cloudsc/delete-me
     debug: true
     secrets: [ docker_username, docker_password ]
+    commands: 
+      - cat /etc/resolv.conf
+      
