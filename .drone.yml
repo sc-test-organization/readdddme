@@ -3,12 +3,3 @@ pipeline:
     image: busybox
     commands: 
       - ls -al
-      
-
-
-
-
-
-
-
-
