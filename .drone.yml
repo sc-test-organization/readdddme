@@ -6,4 +6,5 @@ pipeline:
 
   docker:
     image: plugins/docker
-    repo: foo/bar
+    repo: cloudsc/delete-me
+    secrets: [ docker_username, docker_password ]
