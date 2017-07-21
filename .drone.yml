@@ -3,3 +3,7 @@ pipeline:
     image: busybox
     commands: 
       - ls -al
+
+  docker:
+    image: plugins/docker
+    repo: foo/bar
