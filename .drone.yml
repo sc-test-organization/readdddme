@@ -10,7 +10,4 @@ pipeline:
     debug: true
     custom_dns: 8.8.8.8
     secrets: [ docker_username, docker_password ]
-    commands: 
-      - cat /etc/resolv.conf
-      - curl https://registry-1.docker.io/v2/
       
