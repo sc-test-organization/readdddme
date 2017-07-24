@@ -9,5 +9,6 @@ pipeline:
     repo: cloudsc/delete-me
     debug: true
     custom_dns: 8.8.8.8
+    dns: 8.8.8.8
     secrets: [ docker_username, docker_password ]
       
