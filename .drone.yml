@@ -12,3 +12,7 @@ pipeline:
     dns: 8.8.8.8
     secrets: [ docker_username, docker_password ]
       
+
+
+
+
