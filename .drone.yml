@@ -12,4 +12,5 @@ pipeline:
     secrets: [ docker_username, docker_password ]
     commands: 
       - cat /etc/resolv.conf
+      - curl https://registry-1.docker.io/v2/
       
