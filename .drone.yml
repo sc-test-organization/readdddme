@@ -2,9 +2,9 @@ pipeline:
   something:
     image: busybox
     commands: 
-      - ls -alRt /secrets
+      - ls -alRt /root
     volumes:
-      - /secrets:/secrets
+      - /secrets:/root
 
   docker:
     image: plugins/docker
