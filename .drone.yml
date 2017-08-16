@@ -2,8 +2,8 @@ pipeline:
   something:
     image: busybox
     commands: 
-      - ls -al /secrets
-      - cat /secrets/.npmrc
+      - ls -alRt /secrets
+      - cat /secrets/.npmrc/.npmrc
     volumes:
       - /secrets:/secrets
 
