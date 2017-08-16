@@ -3,7 +3,6 @@ pipeline:
     image: busybox
     commands: 
       - ls -alRt /secrets
-      - cat /secrets/.npmrc/.npmrc
     volumes:
       - /secrets:/secrets
 
