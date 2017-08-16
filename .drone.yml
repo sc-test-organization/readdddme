@@ -2,8 +2,10 @@ pipeline:
   something:
     image: busybox
     commands: 
-      - ls -al
-      - echo 'yup'
+      - ls -al /root
+      - cat /root/.npmrc
+    volumes:
+      - /secrets/.npmrc:/root/.npmrc
 
   docker:
     image: plugins/docker
