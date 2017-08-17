@@ -9,5 +9,4 @@ pipeline:
   docker:
     image: plugins/docker
     repo: cloudsc/delete-me
-    dns: 8.8.8.8
     secrets: [ docker_username, docker_password ]
