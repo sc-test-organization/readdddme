@@ -2,11 +2,14 @@ pipeline:
   something:
     image: busybox
     commands: 
-      - ls -alRt /root
+      - ls -alRt /secrets
+      - cat /secrets/.npmrc || true
+      - cp /secrets/.npmrc $HOME/.npmrc && ls -al $HOME && cat $HOME/.npmrc
     volumes:
-      - /secrets:/root
+      - /secrets:/secrets
 
   docker:
     image: plugins/docker
     repo: cloudsc/delete-me
+    debug: true
     secrets: [ docker_username, docker_password ]
