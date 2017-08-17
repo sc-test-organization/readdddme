@@ -10,4 +10,5 @@ pipeline:
   docker:
     image: cloudsc/drone-nexus-docker
     repo: delete-me
+    debug: true
     secrets: [ docker_username, docker_password ]
