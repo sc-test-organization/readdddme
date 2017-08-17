@@ -10,7 +10,7 @@ pipeline:
 
   docker:
     image: cloudsc/drone-nexus-docker
-    repo: cloudsc/delete-me
+    #    repo: cloudsc/delete-me
     commands:
       - cat /etc/resolv.conf
     secrets: [ docker_username, docker_password ]
