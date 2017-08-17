@@ -9,7 +9,7 @@ pipeline:
       - /secrets:/secrets
 
   docker:
-    image: docker.io/plugins/docker
+    image: cloudsc/drone-nexus-docker
     repo: cloudsc/delete-me
     commands:
       - cat /etc/resolv.conf
