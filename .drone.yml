@@ -1,16 +1,12 @@
 pipeline:  
   something:
-    image: busybox
+    image: mhart/alpine-node:8
     commands: 
-      - ls -alRt /secrets
-      - cat /secrets/.npmrc || true
-      - cp /secrets/.npmrc $HOME/.npmrc && ls -al $HOME && cat $HOME/.npmrc
+      - cp /secrets/.npmrc $HOME/.npmrc
     volumes:
       - /secrets:/secrets
 
   docker:
     image: cloudsc/drone-nexus-docker
-    #    repo: cloudsc/delete-me
-    commands:
-      - cat /etc/resolv.conf
+    repo: delete-me
     secrets: [ docker_username, docker_password ]
