@@ -9,7 +9,7 @@ pipeline:
       - /secrets:/secrets
 
   docker:
-    image: plugins/docker
+    image: docker.io/plugins/docker
 #   repo: cloudsc/delete-me
     commands:
       - cat /etc/resolv.conf
