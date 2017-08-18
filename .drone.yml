@@ -9,7 +9,6 @@ pipeline:
   
   mongo:
     image: mongo
-    debug: true
     commands: 
       - mongo
 
