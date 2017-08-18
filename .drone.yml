@@ -1,15 +1,25 @@
 pipeline:  
-  something:
+  npmrc:
     image: mhart/alpine-node:8
     commands: 
-      -   cp /secrets/.npmrc $HOME/.npmrc
-      - npm i @sharecare/maestro-dsl
+      - cp /secrets/.npmrc $HOME/.npmrc
+      - npm i @sharecare/authorization @sharecare/cache-manager @sharecare/express-rest @sharecare/healthcheck @sharecare/request @sharecare/request-local-context @sharecare/sso-client @sharecare/swagger-rest body-parser bunyan config debug express uuid
     volumes:
       - /secrets:/secrets
+  
+  mongo:
+    image: mongo
+    debug: true
+    commands: 
+      - mongo
 
   docker:
     image: cloudsc/drone-nexus-docker
-    repo: delete-mee
+    repo: delete-me
     privileged: true
     debug: true
     secrets: [ docker_username, docker_password ]
+
+services:
+  mongo:
+    image: mongo
