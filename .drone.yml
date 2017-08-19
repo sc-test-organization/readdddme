@@ -16,11 +16,12 @@ pipeline:
     image: cloudsc/sso-oauth-authority:deps-cache-v2
     commands:
       - rsync -aHA --delete /root/.ivy2 .
-      - rsync -aHA --delete /root/.sbt .      
+      - rsync -aHA --delete /root/.sbt .
+      - rm -rf ./.ivy2 ./.sbt
 
   docker:
     image: cloudsc/drone-nexus-docker
-    repo: delete-me
+    repo: delete-me1
     privileged: true
     debug: true
     secrets: [ docker_username, docker_password ]
