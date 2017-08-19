@@ -10,7 +10,13 @@ pipeline:
   lololool:
     image: mongo
     commands: 
-      - mongo
+      - mongo db://mongo:27017
+      
+  mount-cache:
+    image: cloudsc/sso-oauth-authority:deps-cache-v2
+    commands:
+      - rsync -aHA --delete /root/.ivy2 .
+      - rsync -aHA --delete /root/.sbt .      
 
   docker:
     image: cloudsc/drone-nexus-docker
