@@ -7,7 +7,7 @@ pipeline:
     volumes:
       - /secrets:/secrets
   
-  lololol:
+  lololool:
     image: mongo
     commands: 
       - mongo
