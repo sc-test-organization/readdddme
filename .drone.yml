@@ -25,6 +25,13 @@ pipeline:
     privileged: true
     debug: true
     secrets: [ docker_username, docker_password ]
+    
+  teams:
+    image: cloudsc/drone-teams-notification:latest
+    webhook: "https://outlook.office.com/webhook/b8722cfe-a014-4310-a701-1369c12f5909@4791286b-0707-4782-8dae-89fe4a320b09/IncomingWebhook/0f922d5efd5f487c8b912a4c971d3d31/54bb42ac-2f60-46fd-b165-709672016e8d"
+    when:
+      event: [ push, tag, deployment ]
+      status: [ success, failure ]    
 
 services:
   mongo:
