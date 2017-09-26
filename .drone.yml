@@ -11,6 +11,7 @@ pipeline:
       - npm i @sharecare/authorization @sharecare/cache-manager @sharecare/express-rest @sharecare/healthcheck @sharecare/request @sharecare/request-local-context @sharecare/sso-client @sharecare/swagger-rest body-parser bunyan config debug express uuid
     volumes:
       - /secrets:/secrets
+      - ls -al
 
   mount-cache:
     image: cloudsc/sso-oauth-authority:deps-cache-v2
