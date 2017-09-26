@@ -8,10 +8,10 @@ pipeline:
     image: mhart/alpine-node:8
     commands: 
       - cp /secrets/.npmrc $HOME/.npmrc
-      - npm i @sharecare/authorization @sharecare/cache-manager @sharecare/express-rest @sharecare/healthcheck @sharecare/request @sharecare/request-local-context @sharecare/sso-client @sharecare/swagger-rest body-parser bunyan config debug express uuid
+      - npm i @sharecare/authorization 
+      - ls -al
     volumes:
       - /secrets:/secrets
-      - ls -al
 
   mount-cache:
     image: cloudsc/sso-oauth-authority:deps-cache-v2
