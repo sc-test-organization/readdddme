@@ -6,33 +6,14 @@ pipeline:
       
   npmrc:
     image: mhart/alpine-node:8
-    commands: 
-      - cp /secrets/.npmrc $HOME/.npmrc
-      - npm i @sharecare/authorization 
+    environment:
+      - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
+    commands:
+    - npm i @sharecare/authorization 
       - ls -al
     volumes:
       - /secrets:/secrets
 
-  mount-cache:
-    image: cloudsc/sso-oauth-authority:deps-cache-v2
-    commands:
-      - rsync -aHA --delete /root/.ivy2 .
-      - rsync -aHA --delete /root/.sbt .
-      - rm -rf ./.ivy2 ./.sbt
-
-  docker:
-    image: cloudsc/drone-nexus-docker
-    repo: delete-me1
-    privileged: true
-    debug: true
-    secrets: [ docker_username, docker_password ]
-    
-  teams:
-    image: cloudsc/drone-teams-notification:latest
-    webhook: "https://outlook.office.com/webhook/b8722cfe-a014-4310-a701-1369c12f5909@4791286b-0707-4782-8dae-89fe4a320b09/IncomingWebhook/0f922d5efd5f487c8b912a4c971d3d31/54bb42ac-2f60-46fd-b165-709672016e8d"
-    when:
-      event: [ push, tag, deployment ]
-      status: [ success, failure ]    
 
 services:
   mongo:
