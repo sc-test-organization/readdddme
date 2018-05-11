@@ -1,9 +1,4 @@
 pipeline:  
-  lololool:
-    image: mongo
-    commands: 
-      - mongo mongodb://mongo:27017    
-      
   npmrc:
     image: mhart/alpine-node:8
     environment:
@@ -13,6 +8,11 @@ pipeline:
       - ls -al
     volumes:
       - /secrets:/secrets
+      
+  lololool:
+    image: mongo
+    commands: 
+      - mongo mongodb://mongo:27017    
 
 
 services:
