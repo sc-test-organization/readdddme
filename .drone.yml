@@ -1,10 +1,5 @@
 pipeline:  
-  busybox:
-    image: alpine
-    commands:
-      - apk add --no-cache --update curl
-      - curl -vs https://nexus.admin.sharecare.com
-     
+    
   whee:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
     version: jq -r .version package.json
