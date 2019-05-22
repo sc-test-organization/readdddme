@@ -10,3 +10,4 @@ pipeline:
   whee:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
     version: jq -r .version package.json
+    hi: hi
