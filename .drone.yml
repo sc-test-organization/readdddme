@@ -1,19 +1,20 @@
 pipeline:  
   npmrc:
-    image: mhart/alpine-node:8
+    image: mhart/alpine-node:10
     environment:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
       - npm i @sharecare/authorization 
       - ls -al
-    volumes:
-      - /secrets:/secrets
       
   lololool:
     image: mongo
     commands: 
-      - mongo mongodb://mongo:27017    
-
+      - mongo mongodb://mongo:27017
+      
+  whee:
+    image: nexus.admin.sharecare.com/drone-docker-nexus
+    version: jq -r .version package.json
 
 services:
   mongo:
