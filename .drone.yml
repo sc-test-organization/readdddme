@@ -4,7 +4,7 @@ pipeline:
     environment:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
-      - npm i @sharecare/authorization 
+      - npm i @sharecare/authorization
       - ls -al
       
   lololool:
