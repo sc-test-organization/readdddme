@@ -1,13 +1,18 @@
 pipeline:  
+  busybox:
+    image: busybox
+    commands:
+      - curl -vs https://nexus.admin.sharecare.com -o /dev/null    
+     
+  whee:
+    image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
+    version: jq -r .version package.json
+    when:
+      status: [ success, failure ]
+
   npmrc:
     image: mhart/alpine-node:10
     environment:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
-      - npm i -ddd @sharecare/authorization
-      - ls -al
-      
-  whee:
-    image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
-    version: jq -r .version package.json
-    hi: hi
+      - npm i -ddd @sharecare/custom-error
