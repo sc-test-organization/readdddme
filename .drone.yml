@@ -7,15 +7,6 @@ pipeline:
       - npm i @sharecare/authorization
       - ls -al
       
-  lololool:
-    image: mongo
-    commands: 
-      - mongo mongodb://mongo:27017
-      
   whee:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
     version: jq -r .version package.json
-
-services:
-  mongo:
-    image: mongo
