@@ -15,6 +15,10 @@ pipeline:
   whee:
     image: nexus.admin.sharecare.com/drone-nexus-docker
     version: jq -r .version package.json
+    commands:
+    - set
+    - env
+    - cat /etc/resolv.conf
 
 services:
   mongo:
