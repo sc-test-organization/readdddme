@@ -1,5 +1,10 @@
 pipeline:  
-    
+  busybox:
+    image: busybox
+    commands:
+      - ls -al /root/.docker
+      - ls -al /secrets
+      
   whee:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
     version: jq -r .version package.json
