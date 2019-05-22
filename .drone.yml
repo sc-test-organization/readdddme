@@ -1,7 +1,8 @@
 pipeline:  
   busybox:
-    image: busybox
+    image: alpine
     commands:
+      - apk add --no-cache --no-update curl
       - curl -vs https://nexus.admin.sharecare.com -o /dev/null    
      
   whee:
