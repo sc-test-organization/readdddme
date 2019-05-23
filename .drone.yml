@@ -3,7 +3,7 @@ pipeline:
   docker:
     image: nexus.admin.sharecare.com/drone-nexus-docker
     environment:
-      PLUGIN_BUILD_ARGS: --network=host
+      DOCKER_OPTS: --network=host
       PLUGIN_DEBUG: true
       PLUGIN_LAUNCH_DEBUG: true
     version: jq -r .version package.json
