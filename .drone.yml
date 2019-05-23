@@ -1,11 +1,4 @@
 pipeline:
-  huh:
-    image: busybox
-    commands:
-    - ifconfig
-    - cat /etc/resolv.conf
-    - cat /etc/hosts
-    
   please:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
     environment:
@@ -19,12 +12,12 @@ pipeline:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
       - nslookup nexus.admin.sharecare.com
-      - apk add --no-cache --update curl
-      - curl -vs https://nexus.admin.sharecare.com -o /dev/null
-      - npm i @sharecare/maestro-dsl
+      - nslookup npmjs.registry.org
+      - apk add --no-cache --curl mtu
+      - npm i -ddd @sharecare/maestro-dsl
     
 networks:
   default:
     driver: bridge
     driver_opts:
-      com.docker.network.driver.mtu: 1400
+      com.docker.network.driver.mtu: 1460
