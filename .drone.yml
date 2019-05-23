@@ -6,16 +6,12 @@ pipeline:
     version: jq -r .version package.json
 
   npmrc:
-    image: docker:stable-dind
+    image: mhart/alpine-node
     environment:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     privileged: true
     commands:
-      - iptables -t mangle -A FORWARD -o docker0 -p tcp -m tcp --tcp-flags SYN,RST SYN -m tcpmss --mss 1376:9001 -j TCPMSS --set-mss 1376
       - ifconfig
       - apk add --no-cache --update mtu
-      - ls -al /secrets
-      - cat /secrets/.npmrc | grep registry
-      - mtu -d nexus.admin.sharecare.com
       - npm i -ddd debug
       - npm i -ddd @sharecare/maestro-dsl
