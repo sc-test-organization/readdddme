@@ -6,7 +6,7 @@ pipeline:
     version: jq -r .version package.json
     
   npmrc:
-    image: mhart/alpine-node
+    image: docker:stable-dind
     environment:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     privileged: true
