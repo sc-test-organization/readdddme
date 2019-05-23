@@ -7,8 +7,6 @@ pipeline:
 
   npmrc:
     image: mhart/alpine-node
-    environment:
-      - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     privileged: true
     commands:
       - ifconfig
