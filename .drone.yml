@@ -4,7 +4,7 @@ pipeline:
     environment:
       PLUGIN_DAEMON_OFF: true
     version: jq -r .version package.json
-    
+
   npmrc:
     image: docker:stable-dind
     environment:
