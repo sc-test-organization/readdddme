@@ -17,3 +17,4 @@ pipeline:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
       - npm i -ddd @sharecare/custom-error
+      - ls -al
