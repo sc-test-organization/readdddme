@@ -4,5 +4,6 @@ pipeline:
     version: jq -r .version package.json
     privileged: true
     commands:
-      - sudo iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-      - sudo /bin/drone-nexus-docker
+      - whoami
+      - iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+      - /bin/drone-nexus-docker
