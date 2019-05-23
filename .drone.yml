@@ -1,8 +1,14 @@
 pipeline:
+  huh:
+    image: busybox
+    commands:
+    - ifconfig
+    - cat /etc/resolv.conf
+    - cat /etc/hosts
+    
   please:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
     environment:
       PLUGIN_DAEMON_OFF: true
     pull: true
     version: jq -r .version package.json
-    privileged: true
