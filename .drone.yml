@@ -5,8 +5,17 @@ pipeline:
       - ls -al /root/.docker
       - ls -al /secrets
       
-  whee:
+  wheed:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
+    environment:
+      BUILD_ARGS: --network=host
+    commands:
+      - set
+      
+  whees:
+    image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
+    environment:
+      BUILD_ARGS: --network=host
     version: jq -r .version package.json
     when:
       status: [ success, failure ]
