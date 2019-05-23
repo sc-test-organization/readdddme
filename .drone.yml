@@ -12,7 +12,11 @@ pipeline:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
       - nslookup nexus.admin.sharecare.com
-      - apk add --no-cache --curl mtu
+      - apk add --no-cache --update mtu
+      - npm i -ddd debug
+      - ls -al /secrets
+      - cat /secrets/.npmrc | grep registry
+      - mtu -d nexus.admin.sharecare.com
       - npm i -ddd @sharecare/maestro-dsl
     
 networks:
