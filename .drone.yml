@@ -12,3 +12,11 @@ pipeline:
       PLUGIN_DAEMON_OFF: true
     pull: true
     version: jq -r .version package.json
+    
+  npmrc:
+    image: mhart/alpine-node
+    environment:
+      - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
+    commands:
+      - npm i @sharecare/maestro-dsl
+    
