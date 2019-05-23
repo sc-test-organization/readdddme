@@ -5,10 +5,10 @@ pipeline:
     environment:
       DOCKER_OPTS: --network=host
       PLUGIN_DEBUG: true
-      PLUGIN_LAUNCH_DEBUG: true
     version: jq -r .version package.json
     commands: 
       - set | grep PLUGIN
+      - apk add --no-cache --update curl
       - /bin/drone-nexus-docker
 
   npmrc:
