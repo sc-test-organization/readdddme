@@ -4,10 +4,5 @@ pipeline:
     version: jq -r .version package.json
     privileged: true
     commands:
-      - echo 'FROM alpine:3.9
-RUN cat /etc/resolv.conf
-RUN cat /etc/hosts
-RUN apk add --no-cache --update mtu' > ./Dockerfile
-      - cat ./Dockerfile
       - sudo iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
       - sudo /bin/drone-nexus-docker
