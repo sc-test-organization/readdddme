@@ -11,19 +11,16 @@ pipeline:
     environment:
       - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
-      - nslookup nexus.admin.sharecare.com
+      - ifconfig
       - apk add --no-cache --update mtu
-      - npm i -ddd debug
       - ls -al /secrets
       - cat /secrets/.npmrc | grep registry
       - mtu -d nexus.admin.sharecare.com
+      - npm i -ddd debug
       - npm i -ddd @sharecare/maestro-dsl
-    
-    
-    
-    
-    
+
 networks:
   default:
+    driver: bridge
     driver_opts:
       com.docker.network.driver.mtu: 1460
