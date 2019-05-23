@@ -1,12 +1,10 @@
-pipeline:  
-     
-  docker:
+pipeline:
+  what:
     image: nexus.admin.sharecare.com/drone-nexus-docker
     environment:
-      DOCKER_OPTS: --network=host
-      PLUGIN_DEBUG: true
+      PLUGIN_BUILD_ARGS: --network=host
     version: jq -r .version package.json
-    commands: 
+    commands:
       - set | grep PLUGIN
       - apk add --no-cache --update curl
       - cat /etc/resolv.conf
