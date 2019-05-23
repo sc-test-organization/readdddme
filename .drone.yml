@@ -1,7 +1,8 @@
 pipeline:
   please:
     image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
+    environment:
+      PLUGIN_MTU: 1460
     pull: true
     version: jq -r .version package.json
     privileged: true
-    debug: true
