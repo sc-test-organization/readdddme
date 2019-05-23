@@ -1,5 +1,6 @@
-FROM alpine:latest
+FROM alpine:3.9
 
-ADD . .
 RUN cat /etc/resolv.conf
-RUN apk add --no-cache --update curl
+RUN cat /etc/hosts
+
+RUN apk add --no-cache --update mtu
