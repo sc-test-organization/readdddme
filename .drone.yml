@@ -1,9 +1,7 @@
 pipeline:
   please:
-    image: nexus.admin.sharecare.com/drone-nexus-docker
+    image: nexus.admin.sharecare.com/drone-nexus-docker:4.4.1
+    pull: true
     version: jq -r .version package.json
     privileged: true
-    commands:
-      - whoami
-      - iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-      - /bin/drone-nexus-docker
+    debug: true
