@@ -1,19 +1,10 @@
 pipeline:
-  what:
+  please:
     image: nexus.admin.sharecare.com/drone-nexus-docker
-    environment:
-      PLUGIN_BUILD_ARGS: --network=host
     version: jq -r .version package.json
     commands:
       - set | grep PLUGIN
+      - cat /etc/resolv.conf
       - apk add --no-cache --update curl
       - cat /etc/resolv.conf
       - /bin/drone-nexus-docker
-
-  npmrc:
-    image: mhart/alpine-node:10
-    environment:
-      - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
-    commands:
-      - npm i -ddd @sharecare/authorization
-      - ls -al
