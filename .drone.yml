@@ -8,8 +8,7 @@ pipeline:
       PLUGIN_LAUNCH_DEBUG: true
     version: jq -r .version package.json
     commands: 
-      - set
-      - ls -al /secrets
+      - set | grep PLUGIN
       - /bin/drone-nexus-docker
 
   npmrc:
