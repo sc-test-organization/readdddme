@@ -19,8 +19,3 @@ pipeline:
       - npm i -ddd debug
       - npm i -ddd @sharecare/maestro-dsl
 
-networks:
-  default:
-    driver: bridge
-    driver_opts:
-      com.docker.network.driver.mtu: 1460
