@@ -2,6 +2,7 @@ pipeline:
   please:
     image: nexus.admin.sharecare.com/drone-nexus-docker
     version: jq -r .version package.json
+    privileged: true
     commands:
       - set | grep PLUGIN
       - cat /etc/resolv.conf
