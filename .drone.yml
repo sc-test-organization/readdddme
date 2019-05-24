@@ -10,6 +10,6 @@ pipeline:
     privileged: true
     commands:
       - ifconfig
-      - apk add --no-cache --update mtu
+      - apk add --no-cache --update curl
       - npm i -ddd debug
       - npm i -ddd @sharecare/maestro-dsl
