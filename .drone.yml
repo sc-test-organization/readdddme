@@ -7,7 +7,8 @@ pipeline:
 
   npmrc:
     image: mhart/alpine-node
-    privileged: true
+    environment:
+      - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
     commands:
       - ifconfig
       - apk add --no-cache --update curl
