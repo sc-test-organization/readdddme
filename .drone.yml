@@ -13,7 +13,7 @@ pipeline:
       - ifconfig
       - cat /etc/resolv.conf
       - cat /etc/hosts
-      - cat /secrets/.npmrc | grep -V Token | grep -v token
+      - cat /secrets/.npmrc | grep -v Token | grep -v token
       - apk add --no-cache --update curl
       - curl nexus.admin.sharecare.com
       - npm i -ddd debug
