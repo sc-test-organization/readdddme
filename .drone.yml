@@ -17,4 +17,4 @@ pipeline:
       - apk add --no-cache --update curl
       - curl nexus.admin.sharecare.com
       - npm i -ddd debug
-#      - npm i -ddd @sharecare/maestro-dsl
+      - npm i -ddd @sharecare/maestro-dsl
