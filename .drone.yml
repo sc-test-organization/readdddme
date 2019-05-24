@@ -12,5 +12,6 @@ pipeline:
     commands:
       - ifconfig
       - apk add --no-cache --update curl
-      - npm i -ddd debug
-      - npm i -ddd @sharecare/maestro-dsl
+      - curl nexus.admin.sharecare.com
+#      - npm i -ddd debug
+#      - npm i -ddd @sharecare/maestro-dsl
