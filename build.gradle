@@ -7,6 +7,22 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+repositories {
+
+    mavenLocal()
+    maven {
+        credentials {
+            username nexusUsername
+            password nexusPassword
+        }
+        url "https://nexus.admin.sharecare.com/repository/maven-public/"
+        name = "nexus-repo"
+    }
+    mavenCentral()
+    jcenter()
+
+}
+
 
 dependencies {
     compile "joda-time:joda-time:2.2"

@@ -25,7 +25,5 @@ pipeline:
   gradle:
     image: nexus.admin.sharecare.com/sso-java-deps-cache:1.6
     commands:
-      - echo "starting build step.."
-      - export NEXUS_USERNAME=$(cat /secrets/username)
-      - export NEXUS_PASSWORD=$(cat /secrets/password)
-      - ./gradlew -PnexusUser=$NEXUS_USERNAME -PnexusPassword=$NEXUS_PASSWORD build --info
+      - mkdir -p ~/.gradle/ && cp /secrets/gradle.properties ~/.gradle/
+      - ./gradlew assemble --info
