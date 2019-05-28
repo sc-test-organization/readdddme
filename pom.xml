@@ -17,11 +17,16 @@
   </properties>
 
   <distributionManagement>
-    <site>
-      <id>site-server</id>
-      <name>Test Project Site</name>
-      <url>file:///tmp/single-module-site</url>
-    </site>
+    <repository>
+      <id>sharecarenexus</id>
+      <name>Sharecare Nexus Repository</name>
+      <url>https://nexus.admin.sharecare.com/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>sharecarenexus</id>
+      <name>Sharecare Nexus Repository</name>
+      <url>https://nexus.admin.sharecare.com/repository/maven-snapshots/</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <build>
