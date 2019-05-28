@@ -1,21 +1,7 @@
-import com.typesafe.sbt.SbtGit.GitKeys._
-import com.typesafe.sbt.SbtNativePackager.autoImport.NativePackagerHelper._
-import play.sbt.PlayImport.{ehcache, guice}
-
 name := """sso-account"""
 
-version := IO.read(new File("version")).replace("\n", "")
-
-scalaVersion := "2.12.7"
-
-routesGenerator := InjectedRoutesGenerator
-
-PlayKeys.devSettings := Seq("play.server.http.idleTimeout" -> "300 seconds")
-
-addCompilerPlugin("org.psywerx.hairyfotr" %% "linter" % "0.1.17")
 val reactiveMongoVer = "0.13.0"
 libraryDependencies ++= Seq(
-  ws, guice, ehcache, filters,
 
   // External dependencies
   "net.codingwell" %% "scala-guice" % "4.1.0",
@@ -34,9 +20,6 @@ libraryDependencies ++= Seq(
   "com.sharecare.crypto-services" % "cryptography-java" % "1.0.0"
 )
 
-
-updateOptions := updateOptions.value.withLatestSnapshots(false)
-updateOptions := updateOptions.value.withCachedResolution(true)
 
 val artifactRepo = "https://nexus.admin.sharecare.com"
 resolvers ++= Resolver.jcenterRepo +: {
