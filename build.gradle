@@ -26,11 +26,11 @@ repositories {
 
 dependencies {
     compile(
-            "com.sharecare.services:healthcheck-mongo:$scHealthCheck",
-            "com.sharecare.services:healthcheck-remote-api:$scHealthCheck",
-            "com.sharecare.services:ConfigLoaderJavaSDK:$scConfifLoader",
+            "com.sharecare.services:healthcheck-mongo:3.0.5",
+            "com.sharecare.services:healthcheck-remote-api:3.0.5",
+            "com.sharecare.services:ConfigLoaderJavaSDK:1.1.1",
             'com.sharecare.hashservices:de-identification-java:1.0.0',
-            "com.sharecare.services:sso-public-api-sdk:$ssoSdkVersion"
+            "com.sharecare.services:sso-public-api-sdk:1.3.0"
     )
 
     testCompile "junit:junit:4.12"
