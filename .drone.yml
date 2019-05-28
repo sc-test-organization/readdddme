@@ -26,6 +26,7 @@ pipeline:
   maven:
     image: maven
     commands:
+      - mkdir -P $HOME/.m2/
       - cp /secrets/settings.xml $HOME/.m2/
       - mvn clean package
 
