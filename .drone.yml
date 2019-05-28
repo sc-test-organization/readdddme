@@ -14,8 +14,25 @@ pipeline:
       - cat /secrets/.npmrc | grep -v Token | grep -v token
       - apk add --no-cache --update curl
       - curl nexus.admin.sharecare.com
-      - npm i -ddd debug
-      - npm i -ddd @sharecare/maestro-dsl
+      - npm i debug
+      - npm i @sharecare/maestro-dsl
       - echo 'sixty 5 commitdddddds'
+      
+  npmrc2:
+    image: mhart/alpine-node
+    commands:
+      - npm i express
+      
+  maven:
+    image: maven
+    commands:
+      - mvn clean package
+  sbt:
+    image: sbt
+    commands:
+      - sbt 
 
-# dremacath
+  gradle:
+    image: gradle
+    commands:
+      - gradle
