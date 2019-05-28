@@ -23,7 +23,7 @@ pipeline:
   #     - sbt
 
   gradle:
-    image: nexus.admin.sharecare.com/sso-java-deps-cache:1.6
+    image: gradle
     commands:
       - mkdir -p ~/.gradle/ && cp /secrets/gradle.properties ~/.gradle/
-      - ./gradlew assemble --info
+      - gradle assemble --info
