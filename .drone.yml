@@ -1,7 +1,15 @@
 pipeline:
+  mount-cache:
+    image: nexus.admin.sharecare.com/sso-scala-deps-cache:1.0
+    commands:
+      - cp -a /root/.ivy2 .
+      - cp -a /root/.sbt .
+
   assemble:
     image: gempesaw/docker-sbt:0.13.11
     commands:
+      - yes | cp -rf .ivy2/* /root/.ivy2/
+      - yes | cp -rf .sbt/* /root/.sbt/
       - mkdir -p $HOME/.sbt/0.13/plugins/
       - cp /secrets/.credentials $HOME/.ivy2/
       - cp /secrets/credentials.sbt $HOME/.sbt/0.13/plugins/plugins.sbt
