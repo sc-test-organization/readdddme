@@ -18,6 +18,6 @@ pipeline:
       - curl nexus.admin.sharecare.com
       - npm i -ddd debug
       - npm i -ddd @sharecare/maestro-dsl
-      - echo 'sixty 5 commits'
+      - echo 'sixty 5 commitdddddds'
 
 # dremacath
