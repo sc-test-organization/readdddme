@@ -1,6 +1,6 @@
 package hello;
 
-import org.joda.time.LocalTime;
+import com.sharecare.platform.heathcheck.HealthCheck;
 
 public class HelloWorld {
   public static void main(String[] args) {

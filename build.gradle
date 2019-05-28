@@ -25,7 +25,14 @@ repositories {
 
 
 dependencies {
-    compile "joda-time:joda-time:2.2"
+    compile(
+            "com.sharecare.services:healthcheck-mongo:$scHealthCheck",
+            "com.sharecare.services:healthcheck-remote-api:$scHealthCheck",
+            "com.sharecare.services:ConfigLoaderJavaSDK:$scConfifLoader",
+            'com.sharecare.hashservices:de-identification-java:1.0.0',
+            "com.sharecare.services:sso-public-api-sdk:$ssoSdkVersion"
+    )
+
     testCompile "junit:junit:4.12"
 }
 
