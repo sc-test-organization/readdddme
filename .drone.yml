@@ -1,17 +1,4 @@
 pipeline:
-  maven:
-    image: maven
-    commands:
-      - mkdir -p $HOME/.m2/
-      - cp /secrets/settings.xml $HOME/.m2/
-      - mvn clean package
-
-  mount-cache:
-    image: nexus.admin.sharecare.com/sso-scala-deps-cache:1.0
-    commands:
-      - cp -a /root/.ivy2 .
-      - cp -a /root/.sbt .
-
   # assemble:
   #   image: gempesaw/docker-sbt:0.13.11
   #   commands:
