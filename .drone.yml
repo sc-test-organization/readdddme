@@ -24,6 +24,8 @@ pipeline:
 
   gradle:
     image: gradle
+    environment:
+      - GRADLE_USER_HOME=/root/.gradle
     commands:
       - mkdir -p ~/.gradle/ && cp /secrets/gradle.properties ~/.gradle/
       - gradle assemble --info
