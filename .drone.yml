@@ -17,22 +17,38 @@ pipeline:
       - npm i debug
       - npm i @sharecare/maestro-dsl
       - echo 'sixty 5 commitdddddds'
-      
+
   npmrc2:
     image: mhart/alpine-node
     commands:
       - npm i express
-      
+
   maven:
     image: maven
     commands:
+      - cp /secrets/settings.xml $HOME/.m2/
       - mvn clean package
-  sbt:
-    image: sbt
+
+  mount-cache:
+    image: nexus.admin.sharecare.com/sso-scala-deps-cache:1.0
     commands:
-      - sbt 
+      - cp -a /root/.ivy2 .
+      - cp -a /root/.sbt .
+
+  assemble:
+    image: gempesaw/docker-sbt:0.13.11
+    commands:
+      - yes | cp -rf .ivy2/* /root/.ivy2/
+      - yes | cp -rf .sbt/* /root/.sbt/
+      - mkdir -p $HOME/.sbt/0.13/plugins/
+      - cp /secrets/.credentials $HOME/.ivy2/
+      - cp /secrets/credentials.sbt $HOME/.sbt/0.13/plugins/plugins.sbt
+      - sbt
 
   gradle:
-    image: gradle
+    image: nexus.admin.sharecare.com/sso-java-deps-cache:1.6
     commands:
-      - gradle
+      - echo "starting build step.."
+      - export NEXUS_USERNAME=$(cat /secrets/username)
+      - export NEXUS_PASSWORD=$(cat /secrets/password)
+      - ./gradlew -PnexusUser=$NEXUS_USERNAME -PnexusPassword=$NEXUS_PASSWORD build --info
