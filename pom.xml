@@ -16,6 +16,13 @@
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>sharecarenexus</id>
+      <url>https://nexus.admin.sharecare.com/repository/maven-public</url>
+    </repository>
+  </repositories>
+
   <distributionManagement>
     <repository>
       <id>sharecarenexus</id>
