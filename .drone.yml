@@ -1,18 +1,10 @@
 pipeline:
-  # assemble:
-  #   image: gempesaw/docker-sbt:0.13.11
-  #   commands:
-  #     - yes | cp -rf .ivy2/* /root/.ivy2/
-  #     - yes | cp -rf .sbt/* /root/.sbt/
-  #     - mkdir -p $HOME/.sbt/0.13/plugins/
-  #     - cp /secrets/.credentials $HOME/.ivy2/
-  #     - cp /secrets/credentials.sbt $HOME/.sbt/0.13/plugins/plugins.sbt
-  #     - sbt
-
-  gradle:
-    image: gempesaw/gradle-alpine-bash
-    environment:
-      - GRADLE_USER_HOME=/root/.gradle
+  assemble:
+    image: gempesaw/docker-sbt:0.13.11
     commands:
-      - mkdir -p ~/.gradle/ && cp /secrets/gradle.properties ~/.gradle/
-      - gradle assemble --info
+      - yes | cp -rf .ivy2/* /root/.ivy2/
+      - yes | cp -rf .sbt/* /root/.sbt/
+      - mkdir -p $HOME/.sbt/0.13/plugins/
+      - cp /secrets/.credentials $HOME/.ivy2/
+      - cp /secrets/credentials.sbt $HOME/.sbt/0.13/plugins/plugins.sbt
+      - sbt
