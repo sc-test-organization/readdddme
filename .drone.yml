@@ -23,7 +23,7 @@ pipeline:
   #     - sbt
 
   gradle:
-    image: gradle
+    image: gempesaw/gradle-alpine-bash
     environment:
       - GRADLE_USER_HOME=/root/.gradle
     commands:
