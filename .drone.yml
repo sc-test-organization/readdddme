@@ -13,7 +13,7 @@ pipeline:
       - mongo mongodb://mongo:27017
       
   whee:
-    image: nexus.admin.sharecare.com/drone-docker-nexus
+    image: nexus.admin.sharecare.com/drone-nexus-docker
     version: jq -r .version package.json
 
 services:
