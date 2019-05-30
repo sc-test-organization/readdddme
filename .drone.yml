@@ -1,21 +1,20 @@
-pipeline:  
-  npmrc:
-    image: mhart/alpine-node:10
-    environment:
-      - NPM_CONFIG_USERCONFIG=/secrets/.npmrc
+pipeline:
+  mount-cache:
+    image: nexus.admin.sharecare.com/sso-scala-deps-cache:1.0
     commands:
-      - npm i @sharecare/authorization 
-      - ls -al
-      
-  lololool:
-    image: mongo
-    commands: 
-      - mongo mongodb://mongo:27017
+      - cp -a /root/.ivy2 .
+      - cp -a /root/.sbt .
       
   whee:
     image: nexus.admin.sharecare.com/drone-nexus-docker
     version: jq -r .version package.json
 
-services:
-  mongo:
-    image: mongo
+  assemble:
+    image: gempesaw/docker-sbt:0.13.11
+    commands:
+      - yes | cp -rf .ivy2/* /root/.ivy2/
+      - yes | cp -rf .sbt/* /root/.sbt/
+      - mkdir -p $HOME/.sbt/0.13/plugins/
+      - cp /secrets/.credentials $HOME/.ivy2/
+      - cp /secrets/credentials.sbt $HOME/.sbt/0.13/plugins/plugins.sbt
+      - sbt run
