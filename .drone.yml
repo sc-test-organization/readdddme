@@ -4,6 +4,10 @@ pipeline:
     commands:
       - cp -a /root/.ivy2 .
       - cp -a /root/.sbt .
+      
+  whee:
+    image: nexus.admin.sharecare.com/drone-nexus-docker
+    version: jq -r .version package.json
 
   assemble:
     image: gempesaw/docker-sbt:0.13.11
