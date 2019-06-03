@@ -1,4 +1,9 @@
 pipeline:
+  wheeee:
+    image: busybox
+    commands:
+      - set
+      
   mount-cache:
     image: nexus.admin.sharecare.com/sso-scala-deps-cache:1.0
     commands:
